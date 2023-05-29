@@ -11,7 +11,7 @@
 {% endif %}
 
 {% if page.header.image_description %}
-  {% assign image_description = page.header.image_description | default: '' %}
+  {% assign image_description = page.header.image_description %}
 {% else %}
   {% assign image_description = page.title %}
 {% endif %}
@@ -27,7 +27,8 @@
         {% if paginator and site.paginate_show_page_num %}
           {{ site.title }}{% unless paginator.page == 1 %} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}
         {% else %}
-          {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
+<!--         Don't want any words here-->
+<!--           {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }} -->
         {% endif %}
       </h1>
       {% if page.tagline %}
